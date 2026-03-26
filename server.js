@@ -2,15 +2,18 @@ const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
 const PORT = 3000;
-const tasks = require("./models/tasks")
+const tasksRoutes = require("./routes/tasks")
+require("dotenv").config()
+
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
-app.use("/api/" , tasks)
+app.use("/api/", tasksRoutes)
 
-mongoose.connect("mongodb+srv://Iamnoam_23:kingbr123@noam.cyi4okn.mongodb.net/tasks-manager")
+
+mongoose.connect(process.env.Mongo_URI)
 .then(()=> console.log("MongoDB connected"))
 .catch(err => console.log(err))
 

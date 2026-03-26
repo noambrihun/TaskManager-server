@@ -10,10 +10,19 @@ const tasksSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  completedAt: {
+    type: Date,
+    default: null,
+  },
   description: {
     type: String,
     default: ''
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+
 });
 
 module.exports = mongoose.model('Tasks', tasksSchema);
