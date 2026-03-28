@@ -16,7 +16,7 @@ app.use(express.json())
 app.use("/api", tasksRoutes)
 
 
-mongoose.connect(process.env.Mongo_URI)
+mongoose.connect(process.env.MONGO_URI)
 .then(()=> console.log("MongoDB connected"))
 .catch(err => console.log(err))
 
