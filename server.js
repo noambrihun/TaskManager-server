@@ -8,8 +8,9 @@ require("dotenv").config()
 
 const app = express()
 
-app.use(cors())
-app.use(express.json())
+app.use(cors({
+  origin: "https://task-manager-client-git-main-noam1.vercel.app"
+}));app.use(express.json())
 app.use("/api/", tasksRoutes)
 
 
