@@ -7,11 +7,13 @@ require("dotenv").config()
 
 
 const app = express()
-
 app.use(cors({
-  origin: "https://task-manager-client-git-main-noam1.vercel.app"
-}));app.use(express.json())
-app.use("/api/", tasksRoutes)
+  origin: "https://task-manager-client-git-main-noam1.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"]
+}))
+app.use(express.json())
+app.use("/api", tasksRoutes)
 
 
 mongoose.connect(process.env.Mongo_URI)
